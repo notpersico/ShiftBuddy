@@ -142,7 +142,7 @@ Also: companies hiring 5+ field workers simultaneously (= scaling = chaos incomi
 - r/Plumbing (~200K)
 - r/Electricians (~500K)
 
-#### Tier 2 — Check Weekly
+#### Tier 2 
 - r/HeavyEquipment (~20K)
 - r/logistics (~50K)
 - r/FleetManagement (~3K)
