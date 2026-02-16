@@ -20,13 +20,13 @@ He keeps a whiteboard, a spreadsheet, and three WhatsApp groups. None of them ag
 
 One thing: **open the app and know where his stuff is.**
 
-Not tasks. Not scheduling. Not communication. He needs to search "CAT 320" and get: Site Roma Nord, held by Giovanni since Tuesday, photo of condition at handoff. Done. The 45-minute phone chain replaced by a 5-second search.
+Not tasks. Not scheduling. Not communication. He needs to search "CAT 320" and get: Site Roma Nord, held by Giovanni since Tuesday, condition noted at handoff. Done. The 45-minute phone chain replaced by a 5-second search.
 
 ### Why he'll do the data entry himself
 
 Because he's already doing it — badly. His spreadsheet has columns for equipment location. His WhatsApp messages are ad-hoc status updates. He's already the data entry person. ShiftBuddy isn't adding work. It's replacing a worse version of the same work with something that actually retains information.
 
-The WhatsApp import eliminates the cold start. He doesn't manually enter 50 assets on day one — he drops his group chat export and confirms what the AI found. From there, logging a handoff takes 15 seconds: tap asset, tap person, snap photo, done.
+The WhatsApp import eliminates the cold start. He doesn't manually enter 50 assets on day one — he drops his group chat export and confirms what the AI found. From there, logging a handoff takes 15 seconds: tap asset, tap person, note condition, done.
 
 ### Why he'll pay
 
@@ -37,13 +37,13 @@ He lost a €2,000 generator last month. Nobody knows who had it. His boss asked
 ### His objections
 
 - "I tried [tool X], nobody used it." → Nobody needs to use this except you. Your crew doesn't install anything.
-- "I don't have time to set this up." → Drop your WhatsApp export, review what we found, add photos. 20 minutes.
+- "I don't have time to set this up." → Drop your WhatsApp export, review what we found. 20 minutes.
 - "My boss won't approve another subscription." → Show him the €40K write-off line and the €600/year price tag.
 - "What if I stop updating it?" → That's the argument for the bot. But for now, 15 seconds per handoff is less than the WhatsApp message you're already sending.
 
 ### His aha moment
 
-Day 5. Someone calls asking where the plate compactor is. He opens ShiftBuddy, searches, finds it in 3 seconds with a photo showing it at Cantiere Tivoli, held by Ahmed since Monday. He answers the call in 10 seconds flat. Previously this was 20 minutes and 4 phone calls.
+Day 5. Someone calls asking where the plate compactor is. He opens ShiftBuddy, searches, finds it in 3 seconds — at Cantiere Tivoli, held by Ahmed since Monday. He answers the call in 10 seconds flat. Previously this was 20 minutes and 4 phone calls.
 
 He'll never go back to not knowing.
 
@@ -61,13 +61,13 @@ Antonio approves the €49/mo. That's it. His decision criteria are simple:
 
 1. Does it save more than it costs? (€600/year vs €40K in losses — trivial)
 2. Does it require me to do anything? (No.)
-3. Can I see proof? (CSV export with custody log. Photo evidence of handoffs.)
+3. Can I see proof? (CSV export with custody log.)
 
 Antonio doesn't need a demo. He needs Marco to say "boss, I found a thing that tracks our equipment for €49/mo and I've already been using it for two weeks."
 
 ### What converts him
 
-The first insurance claim or client dispute where Marco pulls up a timestamped photo trail. That's when Antonio stops questioning the subscription and starts asking "can we put this on ALL the sites?"
+The first insurance claim or client dispute where Marco pulls up a timestamped custody trail. That's when Antonio stops questioning the subscription and starts asking "can we put this on ALL the sites?"
 
 ---
 

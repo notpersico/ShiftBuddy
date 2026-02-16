@@ -6,7 +6,7 @@
 
 ## The Bet
 
-**"Who has what, with photo proof"** is worth €49/mo to any company that's ever lost a piece of equipment.
+**"Who has what"** is worth €49/mo to any company that's ever lost a piece of equipment.
 
 We're not building a task manager. We're not building a scheduling tool. We're building an **accountability system for physical assets that move between people and places.**
 
@@ -20,7 +20,7 @@ Construction and field service companies lose 3-8% of movable assets annually. F
 
 The ops manager spends 30-60 minutes every morning calling around asking "where is the generator?" The owner writes off €40K at year-end and shrugs.
 
-This isn't a technology problem. It's a visibility problem. The solution doesn't need GPS, barcodes, or IoT. It needs: **a log of who touched what, when, with a photo.**
+This isn't a technology problem. It's a visibility problem. The solution doesn't need GPS, barcodes, or IoT. It needs: **a log of who touched what, when.**
 
 ---
 
@@ -50,7 +50,7 @@ This is the demo. This is the hook. This is why they don't bounce on day one.
 - Deterministic parser splits messages (handle Android/iOS/locale variants)
 - LLM pass extracts: asset names, types, last mentioned location, condition notes, people associated
 - Manager sees: "We found 23 assets in your chat. Confirm, edit, or dismiss each one."
-- Confirmed assets land in the registry, pre-populated. Manager fills gaps (photo, value, serial number).
+- Confirmed assets land in the registry, pre-populated. Manager fills gaps (value, serial number).
 - Also extracts team member names from chat participants → pre-populates team list.
 
 This replaces 30 minutes of manual data entry with 3 minutes of review. It uses their real data. It's the "before/after" moment: your chaos, now structured.
@@ -61,7 +61,6 @@ The canonical list of everything worth tracking.
 
 Each asset has:
 - Name, category (power tool / vehicle / heavy equipment / scaffolding / other)
-- Photo (required — snap or upload)
 - Serial number or internal ID (optional)
 - Estimated value (optional but prompted — drives ROI messaging)
 - Status: Available / Assigned / In Transit / Maintenance / Lost
@@ -70,7 +69,7 @@ Each asset has:
 - Condition: Good / Fair / Damaged
 
 Operations:
-- Add single asset (photo + basic fields, <30 seconds)
+- Add single asset (basic fields, <30 seconds)
 - CSV bulk import (for managers migrating from spreadsheets)
 - Search by name, serial number, category, custodian, site
 - Filter by status, category, site
@@ -85,17 +84,15 @@ A custody event captures:
 - From whom (or "initial registration" / "returned to pool")
 - To whom
 - At which site
-- Photo of asset condition at moment of transfer (**mandatory** — this is non-negotiable)
 - Condition note (optional free text)
 - Timestamp (auto)
-- GPS coordinates from photo metadata (stored if available, not required)
 
 Event types:
-- **Register** — asset enters the system (first photo)
+- **Register** — asset enters the system
 - **Assign** — asset given to a person
 - **Transfer** — asset moves from person A to person B
 - **Return** — asset returned to pool / depot (no custodian)
-- **Flag: Damaged** — condition change logged with photo
+- **Flag: Damaged** — condition change logged
 - **Flag: Lost** — custodian reports asset missing
 
 Custody events are **append-only and immutable.** No edits. No deletes. Corrections create new events with notes. This is the legal-grade audit trail that makes the product worth paying for.
@@ -104,9 +101,9 @@ Custody events are **append-only and immutable.** No edits. No deletes. Correcti
 
 For any asset, show the complete custody history in reverse chronological order.
 
-Each entry shows: who → who, when, where, condition photo, notes. Click any entry to see the photo full-screen.
+Each entry shows: who → who, when, where, condition, notes.
 
-This is the screen the manager opens when someone says "the generator was already damaged when I got it." They scroll, find the handoff photo, and the argument is over in 10 seconds.
+This is the screen the manager opens when someone says "the generator was already damaged when I got it." They scroll, find the handoff record, and the argument is over in 10 seconds.
 
 ### 5. Sites
 
@@ -152,6 +149,7 @@ Export asset list with current custody state. Export full custody log. Managers 
 
 | Feature | Why |
 |---|---|
+| Photo proof / image uploads | High value but adds complexity (storage, camera UX, compression). V2 feature — custody chain works without it first. |
 | Task management | Different problem, different product surface. Layer it after custody is validated. |
 | WhatsApp bot | The riskiest and most expensive piece. Validate demand with dashboard first. Bot is phase 2. |
 | Crew-facing interface | Crew doesn't log in. Manager is the sole user. Crew interface requires the bot. |
@@ -184,7 +182,7 @@ team_members (NOT auth users — just data rows)
 
 assets
   id, org_id, name, category, serial_number,
-  photo_url, estimated_value, status, condition,
+  estimated_value, status, condition,
   current_custodian_id → team_members,
   current_site_id → sites,
   created_at, updated_at
@@ -195,8 +193,6 @@ custody_events (append-only, immutable)
   from_member_id → team_members (nullable),
   to_member_id → team_members (nullable),
   site_id → sites (nullable),
-  photo_url (required),
-  photo_lat, photo_lng (nullable),
   condition_note,
   created_at, created_by → profiles
 
@@ -257,8 +253,8 @@ On a live call with a prospect:
 3. "Here. 23 assets your team mentioned this month. 4 were flagged as damaged in conversations. This one — the 'generatore' — was last mentioned by Luca at Cantiere Nord, 6 days ago. Do you know where it is right now?"
 4. They don't.
 5. "That's the problem. Let me show you what happens when you start tracking."
-6. Add one asset with photo. Assign to a person. Show the timeline. Show the map.
-7. "Next time someone asks 'who has the generator?' you answer in 5 seconds with a photo. €49/month. You lost €40K last year."
+6. Add one asset. Assign to a person. Show the timeline. Show the map.
+7. "Next time someone asks 'who has the generator?' you answer in 5 seconds. €49/month. You lost €40K last year."
 
 ---
 
@@ -266,7 +262,7 @@ On a live call with a prospect:
 
 **What triggers payment:**
 - Manager has entered 10+ assets with real values
-- Manager has recorded 3+ handoffs with photos
+- Manager has recorded 3+ handoffs
 - Manager has searched "where is X?" and gotten an instant answer
 - Trial expires and they try to record a handoff → paywall
 - The data they've built is now valuable enough to pay to keep
@@ -298,7 +294,7 @@ If any of these fail, diagnose before building more.
 
 **Proves:**
 - Ops managers will pay for asset visibility
-- Photo-proof custody chain has tangible ROI
+- Custody chain has tangible ROI
 - The WhatsApp import hook drives activation
 - There's a market willing to pay €49-199/mo for this
 
@@ -317,7 +313,7 @@ If any of these fail, diagnose before building more.
 | Risk | Severity | Mitigation |
 |---|---|---|
 | **Manager won't do data entry** | High | WhatsApp import eliminates cold start. Keep handoff flow under 15 seconds. Position data entry fatigue as the argument FOR the bot (phase 2). |
-| **"This is just a spreadsheet"** | Medium | Spreadsheets don't have: immutable audit trail, mandatory photos, map view, instant search, custody chain. The simplicity is the feature. |
+| **"This is just a spreadsheet"** | Medium | Spreadsheets don't have: immutable audit trail, map view, instant search, custody chain. The simplicity is the feature. |
 | **WhatsApp export parsing breaks** | Medium | Format varies by OS/locale. Build parser with test suite covering Android IT, iOS IT, Android EN, iOS EN. Handle gracefully — worst case, manual entry still works. |
 | **AI extraction inaccurate** | Medium | Confidence scores + manual confirm/dismiss. Manager reviews everything. Bad extraction is annoying, not fatal — they can add assets manually. |
 | **No virality / only 1 user per org** | Low (for now) | Acceptable for MVP. Virality comes with the bot (workers become users). Dashboard-only is a single-player game by design. |
