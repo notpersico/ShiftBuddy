@@ -1,6 +1,6 @@
 # ShiftBuddy — Signal-Led Sales Strategy
 
-> **Last updated:** 2026-02-11
+> **Last updated:** 2026-02-16
 > **Owner:** Alessio Persichetti, Founder
 > **Stage:** Pre-revenue / First 50 customers
 > **Target:** B2B SaaS for field teams (20-200 employees) using WhatsApp as ops backbone
